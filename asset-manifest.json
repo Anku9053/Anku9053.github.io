@@ -1,16 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.073c9b0a.css",
-    "main.js": "/static/js/main.f7bc09d0.js",
+    "main.css": "/static/css/main.9c430240.css",
+    "main.js": "/static/js/main.5c28511a.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
-    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/Zara.png": "/static/media/Zara.70872b74d47631497a6d.png",
+    "static/media/glamour beauty.png": "/static/media/glamour beauty.6b2b4166a67dd1520410.png",
+    "static/media/fitness first.png": "/static/media/fitness first.664518ec6c0f3845ed8e.png",
+    "static/media/Masai mall.png": "/static/media/Masai mall.622ce3817bd0b2008131.png",
+    "static/media/Ankesh_Kumar_Resume (3). (8).pdf": "/static/media/Ankesh_Kumar_Resume (3).4edaaddf2a7fc08d585b (8).4edaaddf2a7fc08d585b.pdf",
+    "static/media/github stats.png": "/static/media/github stats.ff23989221fe7f577b8c.png",
     "index.html": "/index.html",
-    "main.073c9b0a.css.map": "/static/css/main.073c9b0a.css.map",
-    "main.f7bc09d0.js.map": "/static/js/main.f7bc09d0.js.map",
+    "main.9c430240.css.map": "/static/css/main.9c430240.css.map",
+    "main.5c28511a.js.map": "/static/js/main.5c28511a.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.f7bc09d0.js"
+    "static/css/main.9c430240.css",
+    "static/js/main.5c28511a.js"
   ]
 }
