@@ -1,0 +1,179 @@
+.contact{
+    margin-bottom: 2rem;
+    padding-top: 5rem;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    flex: 1;
+}
+#contact{
+    margin-top: 3rem;
+    /* padding-top: 3rem; */
+}
+#contact>div{
+    margin-top: 3rem;
+}
+.c-title{
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 10px;
+    /* margin-top: 5rem; */
+    margin-bottom: 5rem;
+}
+.contact-part{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.c-right{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    /* flex-wrap: wrap; */
+    font-size: 20px;
+}
+.c-right>p{
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+
+}
+.c-right>p>a{
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+    
+    letter-spacing: 1px;
+}
+.contact-part{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.c-left>img{
+    /* border: 1px solid red; */
+    /* width: 100%; */
+    width: 500px;
+    margin-top: -100px;
+    padding-left: 20px;
+}
+.footer-part{
+    /* border: 1px solid red; */
+    text-align: center;
+    color: var(--gray);
+    font-size: 16px
+}
+.c-form{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    flex: 1;
+}
+
+.c-form>form
+{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    
+}
+.button{
+    border-radius: 34px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 11px 26px 11px 26px;
+    background: linear-gradient(180deg, #fdc50f 26.71%, #fb982f 99.36%);
+    box-shadow: 0px 20px 24px 3px rgba(251, 161, 40, 0.42);
+    cursor: pointer;
+  }
+.c-form .user{
+    width: 25rem;
+    height: 3rem;
+    padding: 0.3em;
+    outline: none;
+    border: 2px solid #FCA61F;
+    border-radius: 8px;
+    font-size: 16px;   
+}
+
+textarea{
+    height: 4rem!important;
+}
+@media screen and (max-width: 480px) {
+    /* .c-form .user{
+        width: 13rem;
+    }
+    .c-left{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    .c-right>p{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        width: 3rem;
+    } */
+
+    .c-form .user {
+        width: 13rem;
+    }
+
+    .contact {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .c-left {
+        width: 80%; /* Take up the full width */
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px; /* Add some spacing between .c-left and .c-right */
+    }
+
+    .c-right {
+        text-align: center;
+        width: 80%; /* Take up the full width */
+        font-size: 16px; /* Adjust font size */
+    }
+
+    .c-right > p {
+        display: block; /* Display paragraphs as block elements */
+        /* margin: 10px 0; Adjust margin to add spacing between paragraphs */
+    }
+    .c-form .user {
+        width: 13rem;
+    }
+
+    .contact {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .c-left {
+        width: 80%; /* Take up the full width */
+        padding-bottom: 20px; 
+        /* Add some spacing between .c-left and .c-right */
+        margin: auto;
+    }
+
+    .c-right {
+        display: grid;
+         /* Display children side by side */
+         grid-template-columns: repeat(1,1fr);
+        flex-direction: row; /* Arrange children in a row */
+        width: 70%; /* Take up the full width */
+        font-size: 16px; /* Adjust font size */
+    }
+
+    .c-right > p {
+        /* margin: 10px; Adjust margin to add spacing between paragraphs */
+        position: relative;
+        bottom: 12px;
+    }
+}  

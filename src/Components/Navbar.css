@@ -1,0 +1,18 @@
+#nav-menu{
+    position: sticky;
+     top: 0;
+     z-index: 20;
+     width: 100%;
+    
+    }
+
+    #nav-link{
+        position: relative;
+        bottom: 40px;
+    }
+
+    #navlink2{
+        height: 2px;
+    }
+
+    
