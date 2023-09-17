@@ -25,7 +25,7 @@ const testimonials = [
   },
   
 ];
-<a href="https://drive.google.com/file/d/1KqbdZyr1_uH6FdAFirUEMIxpqUsPC81Z/view?usp=sharing" download>Resume</a>
+<a href="https://drive.google.com/file/d/1KqbdZyr1_uH6FdAFirUEMIxpqUsPC81Z/view" download>Resume</a>
 
 const backgrounds = [
   `url("https://media.istockphoto.com/id/1185382671/vector/abstract-blurred-colorful-background.jpg?s=612x612&w=0&k=20&c=3YwJa7lCw-cQ-hviINULUokL9lYU4RuGjMP_E_0N8E4=")`,
@@ -127,7 +127,7 @@ function TestimonialCard(props) {
               transform: "scale(1.05)",
             }}
           />
-          <NavLink to="https://drive.google.com/file/d/1_NPHsfhEYIq0MxcsifXZ7kVKzF2LG3wX/view?usp=sharing">
+          <NavLink to="https://drive.google.com/file/d/1KqbdZyr1_uH6FdAFirUEMIxpqUsPC81Z/view">
             <button id="resume-button-2"
             
             onClick={downloadFile1}

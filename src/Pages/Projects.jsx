@@ -67,7 +67,7 @@ const Projects = () => {
         />
         <ProjectCard 
           title="GLAMOUR BEAUTY"
-          discription="Want to look good in ordinary clothes here is the solution a website that helps over thousands of women to be confident.Glamour Beauty is an Indian e-commerce website. Where User can Shopping according their prefece."
+          discription="It's a collaborative project, made by four people in a span of 5 working days.Want to look good in ordinary clothes here is the solution a website that helps over thousands of women to be confident.Glamour Beauty is an Indian e-commerce website. Where User can Shopping according their prefece."
           jsIcon={SiReact}
           htmlIcon={SiChakraui}
           cssIcon={SiNetlify}

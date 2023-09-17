@@ -3,12 +3,19 @@
 import React, { useState } from 'react';
 import './Contact.css';
 import { Container, Text } from "@chakra-ui/react";
-
-import {IoCall} from 'react-icons/io5';
-import {HiOutlineMail} from 'react-icons/hi'
-import {BsLinkedin} from 'react-icons/bs';
-import {AiFillGithub} from 'react-icons/ai';
-import { SyncLoader } from 'react-spinners';
+// import contact from "../Components/Images/contact.gif"
+// import {IoCall} from 'react-icons/io5';
+// import {HiOutlineMail} from 'react-icons/hi'
+// import {BsLinkedin} from 'react-icons/bs';
+// import {AiFillGithub} from 'react-icons/ai';
+// import { Container, Text } from "@chakra-ui/react";
+// import React from "react";
+import { FaGithub } from "react-icons/fa";
+import { FiPhoneCall } from "react-icons/fi";
+import { SiLinkedin } from "react-icons/si";
+import { TfiEmail } from "react-icons/tfi";
+import { Button, Center, Stack } from "@chakra-ui/react";
+// import { SyncLoader } from 'react-spinners';
 import emailjs from "@emailjs/browser";
 
 import { useRef } from 'react';
@@ -37,13 +44,18 @@ function Contact() {
         }
       );
   };
+
+  const handleLinkedin = () => {
+    window.open(`https://www.linkedin.com/in/ankesh-kumar-591595257/`);
+  };
+  const handleGithub = () => {
+    window.open(`https://github.com/Anku9053`);
+  };
   return (
 
-
-
-
-    <div id="contact">
-     <Text
+<div id="contact" style={{ height: "400px" }}>
+      <Container maxW={"4xl"} marginTop={50}>
+        <Text
           as={"span"}
           fontSize={"4xl"}
           fontWeight={"bold"}
@@ -55,51 +67,108 @@ function Contact() {
             position: "absolute",
             bottom: 1,
             left: 0,
-            bg: "white.400",
+            // bg: "red.400",
+            // fill:"yellow";
             zIndex: -1,
           }}
         >
           CONTACT
         </Text>
-    <div className='contact' >
+        <Center p={8}>
+          <Stack spacing={8} align={"center"} maxW={"md"} w={"full"}>
+            {/* Facebook */}
+            <Button
+              w={"full"}
+              colorScheme={"facebook"}
+              leftIcon={<SiLinkedin />}
+              onClick={handleLinkedin}
+            >
+              <Center>
+                <Text id="contact-linkedin">Connect with Linkedin</Text>
+              </Center>
+            </Button>
+
+            {/* Google */}
+            <Button
+              w={"full"}
+              variant={"outline"}
+              leftIcon={<FaGithub />}
+              onClick={handleGithub}
+            >
+              <Center>
+                <Text id="contact-github">Connect with Github</Text>
+              </Center>
+            </Button>
+
+            {/* LinkedIn */}
+            <Button
+              w={"full"}
+              colorScheme={"messenger"}
+              leftIcon={<TfiEmail />}
+            >
+              <Center>
+                <Text id="contact-email">ankesh9053@gmail.com</Text>
+              </Center>
+            </Button>
+
+            {/* Messenger */}
+            <Button
+              w={"full"}
+              colorScheme={"messenger"}
+              leftIcon={<FiPhoneCall />}
+            >
+              <Center>
+                <Text id="contact-phone">+91 8287670719</Text>
+              </Center>
+            </Button>
+          </Stack>
+        </Center>
+      </Container>
+    </div>
+
+
+    // <div id="contact">
+    //  <Text
+    //       as={"span"}
+    //       fontSize={"4xl"}
+    //       fontWeight={"bold"}
+    //       position={"relative"}
+    //       _after={{
+    //         content: "''",
+    //         width: "full",
+    //         height: "30%",
+    //         position: "absolute",
+    //         bottom: 1,
+    //         left: 0,
+    //         bg: "white.400",
+    //         zIndex: -1,
+    //       }}
+    //     >
+    //       CONTACT
+    //     </Text>
+    // <div className='contact' >
    
       
       
-    <div className='c-left' style={{marginTop:"50px"}}>
-        <img src="https://camo.githubusercontent.com/a4c584bce1c41271485d28f92aaf9f581b3c88b68ca723b6edfd58b4ba988c2b/68747470733a2f2f63646e2e6472696262626c652e636f6d2f75736572732f313138373833362f73637265656e73686f74732f363533393432392f70726f6772616d65722e676966" alt="" />
-        </div>
+    // <div className='c-left' style={{marginTop:"50px"}}>
+    //     <img src={contact} alt="" />
+    //     </div>
 
 
 
-        <div className='c-right'>
-        <p><IoCall style={{marginTop:'2px'}} /><a href='/' id="contact-phone">+91 8287670719</a></p>
-          <p><HiOutlineMail style={{marginTop:'2px'}} /><a id="contact-email" href="mailto:ankesh9053@gmail.com" target='_blank'>ankesh9053@gmail.com</a></p>
-          <p><BsLinkedin style={{marginTop:'2px'}} /><a href="https://www.linkedin.com/in/ankesh-kumar-591595257/" id="contact-linkedin" target='_blank'>https://www.linkedin.com/in/ankesh-kumar-591595257/</a></p>
-          <p><AiFillGithub style={{marginTop:'2px'}} /><a id="contact-github" href="https://github.com/Anku9053" target='_blank'>https://github.com/Anku9053</a></p>
-        </div>
-      </div>
+    //     <div className='c-right'>
+    //     <p><IoCall style={{marginTop:'2px'}} /><a href='/' id="contact-phone">+91 8287670719</a></p>
+    //       <p><HiOutlineMail style={{marginTop:'2px'}} /><a id="contact-email" href="mailto:ankesh9053@gmail.com" target='_blank'>ankesh9053@gmail.com</a></p>
+    //       <p><BsLinkedin style={{marginTop:'2px'}} /><a href="https://www.linkedin.com/in/ankesh-kumar-591595257/" id="contact-linkedin" target='_blank'>https://www.linkedin.com/in/ankesh-kumar-591595257/</a></p>
+    //       <p><AiFillGithub style={{marginTop:'2px'}} /><a id="contact-github" href="https://github.com/Anku9053" target='_blank'>https://github.com/Anku9053</a></p>
+    //     </div>
+    //   </div>
 
 
 
 
 
 
-      <div className="c-form" style={{marginTop:"50px"}}>
-        <form ref={form} onSubmit={sendEmail}>
-          <input type="text" name="user_name" className="user"  placeholder="Name"/>
-          <input type="email" name="user_email" className="user" placeholder="Email"/>
-          <textarea name="message" className="user" placeholder="Message"/>
-          <input type="submit" value="Mail Me" className="button"/>
-          <span>{done && "Thanks for Contacting me I will reach to You as soon as possible"}</span>
-        </form>
-      </div>
-      <br />
-      <div style={{display:"flex",justifyContent:"center"}}><SyncLoader /></div>
-      <h1 className='c-title' style={{marginBottom:'0px'}}>Thank you</h1>
-      {/* <p className='footer-part'>Design and Developed by Akash Kumawat</p> */}
-   
-    
-  </div>
   )
 }
 
