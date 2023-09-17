@@ -15,7 +15,7 @@ import '../Components/Resume.css'
 import { SlDocs } from "react-icons/sl";
 import { NavLink } from 'react-router-dom';
 const testimonials = [
-  {
+    {
     name: "Ankesh Kumar.",
     role: "Full Stack Web Developer",
     content:
