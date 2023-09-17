@@ -140,7 +140,7 @@ function TestimonialCard(props) {
             </button>
           </NavLink>
         </Flex>
-      </Flex>
+        </Flex>
     </div>
   );
 }
