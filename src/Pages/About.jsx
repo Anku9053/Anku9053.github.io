@@ -25,7 +25,7 @@ const testimonials = [
   },
   
 ];
-<a href="https://drive.google.com/file/d/1KqbdZyr1_uH6FdAFirUEMIxpqUsPC81Z/view" download>Resume</a>
+<a href="https://drive.google.com/file/d/1xIXvHIB7eGPx4qNbiskJ3BRCiUpgw92w/view" download>Resume</a>
 
 const backgrounds = [
   `url("https://media.istockphoto.com/id/1185382671/vector/abstract-blurred-colorful-background.jpg?s=612x612&w=0&k=20&c=3YwJa7lCw-cQ-hviINULUokL9lYU4RuGjMP_E_0N8E4=")`,
@@ -34,7 +34,7 @@ const backgrounds = [
 function TestimonialCard(props) {
   function downloadFile1() {
     window.open(
-      "https://drive.google.com/file/d/1KqbdZyr1_uH6FdAFirUEMIxpqUsPC81Z/view?usp=share_link",
+      "https://drive.google.com/file/d/1xIXvHIB7eGPx4qNbiskJ3BRCiUpgw92w/view",
       "_blank"
     );
     const link = document.createElement("a");
@@ -127,7 +127,7 @@ function TestimonialCard(props) {
               transform: "scale(1.05)",
             }}
           />
-          <NavLink to="https://drive.google.com/file/d/1KqbdZyr1_uH6FdAFirUEMIxpqUsPC81Z/view">
+          <NavLink to="https://drive.google.com/file/d/1xIXvHIB7eGPx4qNbiskJ3BRCiUpgw92w/view">
             <button id="resume-button-2"
             
             onClick={downloadFile1}

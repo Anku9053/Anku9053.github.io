@@ -61,8 +61,8 @@ const Projects = () => {
           jsIcon={SiReact}
           htmlIcon={SiChakraui}
           cssIcon={SiNetlify}
-          githubUrl="https://github.com/RuchiAgrawal9186/FitnessFirst"
-          netlifyUrl="https://fitness-first-g.netlify.app/"
+          githubUrl="https://github.com/Anku9053/FitnessFirst"
+          netlifyUrl="https://fabulous-bienenstitch-3b4138.netlify.app/"
           banner={fitnessfirst}
         />
         <ProjectCard 
@@ -71,7 +71,7 @@ const Projects = () => {
           jsIcon={SiReact}
           htmlIcon={SiChakraui}
           cssIcon={SiNetlify}
-          githubUrl="https://github.com/Omkanta/dusty-hat-6390/tree/main/dusty-hat-6390"
+          githubUrl="https://github.com/Anku9053/Glamour.Com"
           netlifyUrl="https://glamour-pi.vercel.app/"
           banner={glamour}
         />
@@ -81,7 +81,7 @@ const Projects = () => {
           jsIcon={SiJavascript}
           htmlIcon={SiHtml5}
           cssIcon={SiCss3}
-          githubUrl="https://github.com/ashishk2007/attractive-songs-1315"
+          githubUrl="https://github.com/Anku9053/MasaiMall.Com"
           netlifyUrl="https://dreamy-semifreddo-625c90.netlify.app/"
           banner={masaimall}
         />
@@ -91,7 +91,7 @@ const Projects = () => {
           jsIcon={SiJavascript}
           htmlIcon={SiHtml5}
           cssIcon={SiCss3}
-          githubUrl="https://github.com/Anku9053/-defeated-fall-3461"
+          githubUrl="https://github.com/Anku9053/Zara.Com"
           netlifyUrl="https://resonant-puppy-aa5911.netlify.app/"
           banner={Zara}
         />

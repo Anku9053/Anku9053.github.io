@@ -26,7 +26,7 @@ export default function Navbar() {
 
   function downloadFile1() {
     window.open(
-      "https://drive.google.com/file/d/1KqbdZyr1_uH6FdAFirUEMIxpqUsPC81Z/view",
+      "https://drive.google.com/file/d/1xIXvHIB7eGPx4qNbiskJ3BRCiUpgw92w/view",
       "_blank"
     );
     const link = document.createElement("a");
@@ -115,7 +115,7 @@ export default function Navbar() {
         </NavLink> */}
 
 
-        <NavLink to="https://drive.google.com/file/d/1KqbdZyr1_uH6FdAFirUEMIxpqUsPC81Z/view">
+        <NavLink to="https://drive.google.com/file/d/1xIXvHIB7eGPx4qNbiskJ3BRCiUpgw92w/view">
             <button id="resume-button-1"
             className="nav-link resume"
             onClick={downloadFile1}
