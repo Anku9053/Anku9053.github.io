@@ -1,1 +1,307 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>React App</title><script defer="defer" src="/static/js/main.23a00321.js"></script><link href="/static/css/main.cb58e06b.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body><style>*{scroll-behavior:smooth}</style></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ankesh Kumar | Full Stack & Zoho Developer</title>
+<meta name="description" content="Portfolio of Ankesh Kumar | Full Stack Developer and Zoho Developer who builds products from scratch (React, Angular, Node.js), websites and lead generation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-count"><span id="count">0</span>%</div>
+    <div class="loader-bar"><i id="bar"></i></div>
+    <p>Ankesh Kumar Portfolio</p>
+  </div>
+</div>
+
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="ring3d" id="ring3d" aria-hidden="true"><div class="rot" id="rot">
+  <div class="rface" style="--i:0">React</div><div class="rface" style="--i:1">Angular</div><div class="rface" style="--i:2">Node.js</div><div class="rface" style="--i:3">Zoho</div>
+  <div class="rface" style="--i:4">MongoDB</div><div class="rface" style="--i:5">TypeScript</div><div class="rface" style="--i:6">Express</div><div class="rface" style="--i:7">Redux</div>
+</div></div>
+<div class="orb orb1"></div><div class="orb orb2"></div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="progress" id="progress"></div>
+
+<header class="nav glass" id="nav">
+  <a href="#top" class="logo">AK<span>.</span></a>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#what">Services</a>
+    <a href="#experience">Experience</a>
+    <a href="#work">Work</a>
+    <a href="#playground">Play</a>
+    <a href="#contact" class="pill magnet">Let's talk</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">Full Stack Developer · Zoho Developer · Faridabad, India</p>
+    <h1 aria-label="Ankesh Kumar">
+      <span class="line">Ankesh</span>
+      <span class="line grad">Kumar</span>
+    </h1>
+    <p class="lead">I build products <b>from scratch</b> (frontend, backend, database and launch), plus the <b>websites</b> and <b>lead funnels</b> that grow them, and <b>Zoho</b> solutions that run the business.</p>
+    <div class="cta">
+      <a href="#work" class="btn magnet">View my work</a>
+      <a href="#contact" class="btn ghost magnet">Get in touch</a>
+    </div>
+  </div>
+  <div class="hero-hint">
+    <span class="hint-chip">✦ Drag the object</span>
+    <span class="hint-chip">✦ Click to pulse</span>
+  </div>
+  <div class="scroll-hint">Scroll<i></i></div>
+</section>
+
+<!-- MARQUEE -->
+<section class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee">
+    <span>React</span><span>Angular</span><span>Node.js</span><span>Zoho</span><span>MongoDB</span><span>TypeScript</span><span>Lead Gen</span><span>Websites</span><span>Redux</span><span>Tailwind</span>
+    <span>React</span><span>Angular</span><span>Node.js</span><span>Zoho</span><span>MongoDB</span><span>TypeScript</span><span>Lead Gen</span><span>Websites</span><span>Redux</span><span>Tailwind</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <p class="eyebrow reveal">About</p>
+  <h2 class="big reveal-words">I don't just write features, I own the whole product, from the first blank file to the live launch.</h2>
+  <div class="about-grid">
+    <p class="reveal">I'm a full stack developer at Relinns Technologies, working on live, production-level applications. I've built <b>MultiOwner</b> and <b>Udaan CRM</b> entirely from scratch on my own, handled websites and marketing leads (taking leads from ~100 to 120 up to 500 per quarter), and worked as a <b>Zoho Developer</b>, building an internal company project entirely in Zoho and fixing its server and application bugs. Earlier I interned at Skillencio and taught Azure Fundamentals (AZ-900) to up to 90 students at Bytexl. Trained at Masai School; B.Sc. (PCM), Maharshi Dayanand University.</p>
+    <div class="stats">
+      <div class="stat glass tilt"><b data-count="4.89" data-dec="2">0</b><span>Trainer rating / 5</span></div>
+      <div class="stat glass tilt"><b data-count="90" data-suffix="+">0</b><span>Students mentored</span></div>
+      <div class="stat glass tilt"><b data-count="500" data-suffix="">0</b><span>Leads per quarter, up from ~100 to 120</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT I DO -->
+<section class="what" id="what">
+  <p class="eyebrow reveal">What I do</p>
+  <h2 class="big reveal">Four things, done properly.</h2>
+  <div class="stack">
+
+    <article class="panel" style="--p:260">
+      <div class="p-text">
+        <span class="p-num">01</span>
+        <h3>Zero to launched.</h3>
+        <p>MultiOwner and Udaan CRM: every layer built by me, from the first blank file to the live deploy.</p>
+        <div class="tags"><span>Frontend</span><span>API</span><span>Database</span><span>Deploy</span></div>
+      </div>
+      <div class="p-visual v1"><div class="v-stack" id="vStack">
+        <div class="layer" style="--i:0"><b>Deploy</b></div>
+        <div class="layer" style="--i:1"><b>Database</b></div>
+        <div class="layer" style="--i:2"><b>API</b></div>
+        <div class="layer" style="--i:3"><b>Frontend</b></div>
+      </div></div>
+    </article>
+
+    <article class="panel" style="--p:190">
+      <div class="p-text">
+        <span class="p-num">02</span>
+        <h3>Leads that actually grew.</h3>
+        <p>I handled the websites and marketing leads. Per quarter, leads climbed from around 100 to 120 up to 500.</p>
+        <div class="tags"><span>Websites</span><span>Lead gen</span><span>Funnels</span></div>
+      </div>
+      <div class="p-visual v2">
+        <div class="bars">
+          <div class="bcol"><em>~110</em><div class="bar b1"></div><small>Before</small></div>
+          <div class="bcol"><em id="bigLead">500</em><div class="bar b2"></div><small>After</small></div>
+        </div>
+        <span class="unit">leads / quarter</span>
+      </div>
+    </article>
+
+    <article class="panel" style="--p:330">
+      <div class="p-text">
+        <span class="p-num">03</span>
+        <h3>An entire company system, in Zoho.</h3>
+        <p>Built an internal project completely from scratch in Zoho. Then tracked down and fixed the server and application bugs that came with it.</p>
+        <div class="tags"><span>Zoho</span><span>Built from scratch</span><span>Bug fixing</span></div>
+      </div>
+      <div class="p-visual v3">
+        <svg viewBox="0 0 400 260" id="flow">
+          <defs><linearGradient id="fg" x1="0" x2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset=".5" stop-color="#22d3ee"/><stop offset="1" stop-color="#ff4d8d"/></linearGradient></defs>
+          <path id="flowPath" d="M60 130 C 110 40, 150 40, 200 130 S 290 220, 340 130" fill="none" stroke="url(#fg)" stroke-width="3" stroke-linecap="round"/>
+          <g class="fnode"><circle cx="60" cy="130" r="26"/><text x="60" y="176">Capture</text></g>
+          <g class="fnode"><circle cx="200" cy="130" r="26"/><text x="200" y="176">Automate</text></g>
+          <g class="fnode"><circle cx="340" cy="130" r="26"/><text x="340" y="176">Report</text></g>
+          <circle id="flowDot" r="7" fill="#fff"/>
+        </svg>
+        <div class="bugs"><span>server bug ✓</span><span>app bug ✓</span><span>logic bug ✓</span></div>
+      </div>
+    </article>
+
+    <article class="panel" style="--p:40">
+      <div class="p-text">
+        <span class="p-num">04</span>
+        <h3>Teach it, too.</h3>
+        <p>Mentored up to 90 students through Azure Fundamentals (AZ-900) at Bytexl, average feedback <b>4.89 / 5</b>.</p>
+        <div class="tags"><span>Azure AZ-900</span><span>Mentoring</span><span>Public speaking</span></div>
+      </div>
+      <div class="p-visual v4">
+        <div class="dots" id="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="stars" aria-label="4.89 out of 5">★★★★★</div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="exp" id="experience">
+  <p class="eyebrow reveal">Experience</p>
+  <h2 class="big reveal">Where I've worked</h2>
+  <div class="timeline">
+    <div class="tl-line"><i id="tlFill"></i></div>
+
+    <article class="tl-item glass spot">
+      <time>Aug 2024 to Present</time>
+      <h3>Associate Software Developer</h3>
+      <h4>Relinns Technologies</h4>
+      <ul>
+        <li>Developing and maintaining full-stack web applications.</li>
+        <li>Handled websites and marketing leads, growing leads from ~100 to 120 up to 500 per quarter.</li>
+        <li>Built an internal company project from scratch in Zoho and resolved server and application bugs.</li>
+        <li>Collaborating with cross-functional teams on live, production-level code.</li>
+      </ul>
+    </article>
+
+    <article class="tl-item glass spot">
+      <time>Mar 2024 to Jul 2024</time>
+      <h3>Full Stack Developer Intern</h3>
+      <h4>Skillencio India Pvt. Ltd.</h4>
+      <ul>
+        <li>Contributed to design and development of web platforms with robust functionality.</li>
+        <li>Ensured responsive design and optimized UX across devices.</li>
+      </ul>
+    </article>
+
+    <article class="tl-item glass spot">
+      <time>Dec 2023 to Mar 2024</time>
+      <h3>Technical Educator</h3>
+      <h4>Bytexl, Hyderabad</h4>
+      <ul>
+        <li>Trained and mentored up to 90 students in Microsoft Azure Fundamentals (AZ-900).</li>
+        <li>Achieved an average feedback rating of 4.89 / 5.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- WORK (horizontal pinned) -->
+<section class="work" id="work">
+  <div class="work-head">
+    <p class="eyebrow">Selected work</p>
+    <h2 class="big">Products I've worked on</h2>
+    <p class="muted work-hint">Scroll →</p>
+  </div>
+  <div class="work-track" id="workTrack">
+
+    <a class="card tilt" href="https://multiowner.in/" target="_blank" rel="noopener" style="--h:262">
+      <div class="art"><span class="n">01</span><em>MO</em></div>
+      <div class="body"><small>Built from scratch · Full stack</small><h3>MultiOwner</h3><p>Designed and built end to end by me, frontend, backend, database and deployment.</p><span class="go">Visit ↗</span></div>
+    </a>
+
+    <a class="card tilt" href="https://udaan-crm.vercel.app/" target="_blank" rel="noopener" style="--h:190">
+      <div class="art"><span class="n">02</span><em>UC</em></div>
+      <div class="body"><small>Built from scratch · Full stack</small><h3>Udaan CRM</h3><p>A complete CRM I built solo, with a glass UI, AI assistant "Prof." and GSAP motion.</p><span class="go">Visit ↗</span></div>
+    </a>
+
+    <a class="card tilt" href="https://botpenguin.com/" target="_blank" rel="noopener" style="--h:300">
+      <div class="art"><span class="n">03</span><em>BP</em></div>
+      <div class="body"><small>Live · Relinns</small><h3>BotPenguin</h3><p>AI chatbot platform. Website handling and marketing lead generation.</p><span class="go">Visit ↗</span></div>
+    </a>
+
+    <a class="card tilt" href="https://relinns.com/" target="_blank" rel="noopener" style="--h:330">
+      <div class="art"><span class="n">04</span><em>RT</em></div>
+      <div class="body"><small>Live · Company site</small><h3>Relinns Technologies</h3><p>Software and app development company website. Website handling and lead generation.</p><span class="go">Visit ↗</span></div>
+    </a>
+
+    <a class="card tilt" href="https://www.appsrhino.com/" target="_blank" rel="noopener" style="--h:20">
+      <div class="art"><span class="n">05</span><em>AR</em></div>
+      <div class="body"><small>Live · Relinns</small><h3>AppsRhino</h3><p>App development services platform. Website handling and lead generation.</p><span class="go">Visit ↗</span></div>
+    </a>
+
+    <a class="card tilt" href="https://www.localcityplaces.com/" target="_blank" rel="noopener" style="--h:160">
+      <div class="art"><span class="n">06</span><em>LC</em></div>
+      <div class="body"><small>Angular · Node.js · Material UI</small><h3>Local City Places</h3><p>City platform to explore local businesses, deal purchases, reviews, role-based admin panel with tabbed UI.</p><span class="go">Visit ↗</span></div>
+    </a>
+
+    <div class="card tilt" style="--h:220">
+      <div class="art"><span class="n">07</span><em>PM</em></div>
+      <div class="body"><small>Angular · Node.js · Tailwind</small><h3>Project Management Tool</h3><p>Zoho/Drive-inspired tool: timesheets, to-dos, document sharing, role-based access and real-time collaboration.</p><span class="go off">Private</span></div>
+    </div>
+
+    <div class="card tilt" style="--h:280">
+      <div class="art"><span class="n">08</span><em>SK</em></div>
+      <div class="body"><small>React · Chakra UI · Redux</small><h3>Skillencio</h3><p>Educational platform for employability, multi-role auth, filtering and sorting, responsive admin and home pages.</p><span class="go off">Internship</span></div>
+    </div>
+
+    <div class="card tilt" style="--h:340">
+      <div class="art"><span class="n">09</span><em>IN</em></div>
+      <div class="body"><small>Internal · Zoho · Built from scratch</small><h3>Internal Company Project</h3><p>Built entirely in Zoho from scratch. Also the go-to developer for fixing server and application bugs across the project.</p><span class="go off">Private</span></div>
+    </div>
+
+    <div class="card end"><h3>Want something built?</h3><a href="#contact" class="btn">Let's talk</a></div>
+  </div>
+</section>
+
+<!-- PLAYGROUND -->
+<section class="play" id="playground">
+  <p class="eyebrow reveal">Playground</p>
+  <h2 class="big reveal">Grab my toolbox</h2>
+  <p class="muted reveal">Drag the chips around. They float back to life when you let go.</p>
+  <div class="arena glass" id="arena"></div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <p class="eyebrow reveal">Skills</p>
+  <h2 class="big reveal">Toolbox</h2>
+  <div class="skill-grid">
+    <div class="skill glass tilt"><h3>Frontend</h3><p>HTML5 · CSS3 · JavaScript · React.js · Angular · Chakra UI · Material UI · Tailwind</p></div>
+    <div class="skill glass tilt"><h3>Backend</h3><p>Node.js · Express.js · PHP · Django · Python</p></div>
+    <div class="skill glass tilt"><h3>Database</h3><p>MongoDB · MySQL</p></div>
+    <div class="skill glass tilt"><h3>Zoho</h3><p>Zoho development · business workflow customisation &amp; automation</p></div>
+    <div class="skill glass tilt"><h3>Growth</h3><p>Website handling · marketing lead generation · conversion-focused pages</p></div>
+    <div class="skill glass tilt"><h3>Tools &amp; Other</h3><p>Git · Figma · TypeScript · Azure Fundamentals (AZ-900) · Prompt Engineering · UML Design</p></div>
+  </div>
+  <p class="soft reveal">Leadership · Adaptability · Creativity · Public Speaking · Active Learner</p>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="eyebrow reveal">Contact</p>
+  <h2 class="huge reveal-words">Let's build something great together.</h2>
+  <a class="mail magnet" href="mailto:ankeshdev2@gmail.com">ankeshdev2@gmail.com</a>
+  <div class="links">
+    <a href="tel:+918287670719" class="magnet">+91 82876 70719</a>
+    <a href="https://github.com/Anku9053" target="_blank" rel="noopener" class="magnet">GitHub</a>
+    <a href="https://www.linkedin.com/in/anku9053" target="_blank" rel="noopener" class="magnet">LinkedIn</a>
+  </div>
+  <footer>© <span id="yr"></span> Ankesh Kumar · Built with GSAP &amp; three.js</footer>
+</section>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
