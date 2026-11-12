@@ -190,12 +190,13 @@ footer{margin-top:6rem;color:var(--muted);font-size:.8rem}
   .grad,.grad .ch{animation:none}
   .panel{position:relative!important;top:auto!important;height:auto;min-height:0;margin-bottom:1.2rem;transform:none!important;filter:none!important}
   .p-visual{min-height:220px}
+  .what{padding-bottom:30px}
   .card,.panel,.tl-item,.skill{will-change:auto}
 }
 
 /* stacked showcase panels */
 .stack{margin-top:3rem;display:grid;gap:0}
-.panel{position:sticky;top:calc(96px + var(--n,0)*18px);height:clamp(420px,62vh,520px);margin-bottom:6vh;border-radius:30px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:2rem;padding:clamp(1.4rem,4vw,3.2rem);
+.panel{position:sticky;top:calc(96px + var(--n,0)*18px);height:clamp(380px,56vh,480px);margin-bottom:2vh;border-radius:30px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:2rem;padding:clamp(1.4rem,4vw,3.2rem);
   background:radial-gradient(600px circle at 90% 10%,hsl(var(--p) 90% 60% / .28),transparent 60%),linear-gradient(160deg,#10102a,#070713);border:1px solid var(--line);box-shadow:0 40px 80px -40px rgba(0,0,0,.9);transform-origin:50% 0}
 .panel:nth-child(1){--n:0}.panel:nth-child(2){--n:1}.panel:nth-child(3){--n:2}.panel:nth-child(4){--n:3}
 .p-num{font:700 1rem "Space Grotesk";color:hsl(var(--p) 90% 70%);letter-spacing:.2em}

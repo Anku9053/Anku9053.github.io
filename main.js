@@ -332,12 +332,12 @@ panels.forEach((p, i) => {
     scrollTrigger: { trigger: panels[i + 1], start: "top 88%", end: "top 25%", scrub: true } });
 });
 // 01: layers fan apart in 3D
-gsap.fromTo(".layer", { "--gap": "0px" }, { "--gap": "62px", duration: 1.6, ease: "elastic.out(1,.6)", scrollTrigger: { trigger: ".v1", start: "top 80%" } });
-gsap.from(".layer", { autoAlpha: 0, duration: .8, stagger: .12, scrollTrigger: { trigger: ".v1", start: "top 80%" } });
+gsap.fromTo(".layer", { "--gap": "0px" }, { "--gap": "62px", duration: 1.6, ease: "elastic.out(1,.6)", scrollTrigger: { trigger: ".panel:nth-child(1)", start: "top 85%" } });
+gsap.from(".layer", { autoAlpha: 0, duration: .8, stagger: .12, scrollTrigger: { trigger: ".panel:nth-child(1)", start: "top 85%" } });
 // 02: bars grow, number counts
-gsap.from(".bar", { scaleY: 0, duration: 1.4, stagger: .25, ease: "power4.out", scrollTrigger: { trigger: ".v2", start: "top 75%" } });
+gsap.from(".bar", { scaleY: 0, duration: 1.4, stagger: .25, ease: "power4.out", scrollTrigger: { trigger: ".panel:nth-child(2)", start: "top 85%" } });
 const bl = { v: 0 };
-gsap.to(bl, { v: 500, duration: 2, ease: "power2.out", onUpdate: () => ($("#bigLead").textContent = Math.round(bl.v)), scrollTrigger: { trigger: ".v2", start: "top 75%" } });
+gsap.to(bl, { v: 500, duration: 2, ease: "power2.out", onUpdate: () => ($("#bigLead").textContent = Math.round(bl.v)), scrollTrigger: { trigger: ".panel:nth-child(2)", start: "top 85%" } });
 // 03: path draws, dot travels, nodes pulse in, bugs tick off
 (function () {
   const path = $("#flowPath"), dot = $("#flowDot"), len = path.getTotalLength();
@@ -346,7 +346,7 @@ gsap.to(bl, { v: 500, duration: 2, ease: "power2.out", onUpdate: () => ($("#bigL
   const prog = { t: 0 };
   const setDot = () => { const p = path.getPointAtLength(prog.t * len); dot.setAttribute("cx", p.x); dot.setAttribute("cy", p.y); };
   setDot();
-  gsap.timeline({ scrollTrigger: { trigger: ".v3", start: "top 75%" } })
+  gsap.timeline({ scrollTrigger: { trigger: ".panel:nth-child(3)", start: "top 85%" } })
     .to(path, { strokeDashoffset: 0, duration: 2, ease: "power2.inOut" })
     .to(prog, { t: 1, duration: 2, ease: "power2.inOut", onUpdate: setDot }, 0)
     .from(".fnode circle", { scale: 0, stagger: .6, duration: .6, ease: "back.out(2)" }, 0)
@@ -354,7 +354,7 @@ gsap.to(bl, { v: 500, duration: 2, ease: "power2.out", onUpdate: () => ($("#bigL
   if (!reduce) gsap.to(".fnode circle", { strokeWidth: 4, duration: 1, yoyo: true, repeat: -1, stagger: .3, ease: "sine.inOut" });
 })();
 // 04: 90 dots light up
-ScrollTrigger.create({ trigger: ".v4", start: "top 75%", once: true, onEnter: () => {
+ScrollTrigger.create({ trigger: ".panel:nth-child(4)", start: "top 85%", once: true, onEnter: () => {
   $$("#dots i").forEach((d, i) => gsap.delayedCall(i * .025, () => d.classList.add("on")));
   gsap.from(".stars", { scale: .6, autoAlpha: 0, duration: 1, ease: "elastic.out(1,.5)" });
 } });
