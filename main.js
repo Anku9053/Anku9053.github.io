@@ -2,7 +2,10 @@ gsap.registerPlugin(ScrollTrigger, Draggable);
 
 /* ---------- buttery smooth scroll (Lenis) ---------- */
 let lenis = null;
-if (window.Lenis && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+// phones/tablets: keep the browser's native touch scrolling and run a lighter version of the effects
+const lite = matchMedia("(max-width: 900px), (hover: none)").matches;
+ScrollTrigger.config({ ignoreMobileResize: true });
+if (window.Lenis && !lite && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
   lenis = new Lenis({ lerp: 0.085, smoothWheel: true });
   lenis.on("scroll", ScrollTrigger.update);
   gsap.ticker.add(t => lenis.raf(t * 1000));
@@ -39,8 +42,8 @@ function initGL() {
   if (!window.THREE) return null;
   const canvas = $("#gl");
   let renderer;
-  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true }); } catch (e) { return null; }
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: !lite, alpha: true, powerPreference: "high-performance" }); } catch (e) { return null; }
+  renderer.setPixelRatio(Math.min(devicePixelRatio, lite ? 1.25 : 2));
   renderer.setSize(innerWidth, innerHeight);
 
   const scene = new THREE.Scene();
@@ -83,7 +86,7 @@ function initGL() {
   scene.add(l1, l2, l3);
 
   // particle field
-  const N = innerWidth < 700 ? 1400 : 3200;
+  const N = lite ? 800 : 3200;
   const pos = new Float32Array(N * 3), col = new Float32Array(N * 3);
   const palette = [new THREE.Color(0x7c5cff), new THREE.Color(0x22d3ee), new THREE.Color(0xff4d8d), new THREE.Color(0xffb938)];
   for (let i = 0; i < N; i++) {
@@ -112,7 +115,7 @@ gl = initGL();
 if (gl) {
   const { renderer, scene, camera, group, core, wire, coreMat, wireMat, rings, sats, points, lights } = gl;
   const mobile = () => innerWidth < 900;
-  group.position.set(mobile() ? 0 : 2.6, mobile() ? 2.2 : 0, 0);
+  group.position.set(mobile() ? 0 : 2.6, mobile() ? 3.0 : 0, 0);
   group.scale.setScalar(0);
   gl.base = { x: 0, y: 0 };
 
@@ -133,6 +136,7 @@ if (gl) {
     if (scrollY > innerHeight * .9) return;
     state.dragging = true; lastX = e.clientX; lastY = e.clientY;
   });
+  addEventListener("pointercancel", () => { state.dragging = false; });
   addEventListener("pointerup", e => {
     if (state.dragging && Math.abs(e.clientX - lastX) < 3) pulse();
     state.dragging = false;
@@ -147,7 +151,7 @@ if (gl) {
     gsap.fromTo(wireMat, { opacity: 1 }, { opacity: .35, duration: 1 });
     state.spin.y += 3; state.spin.x += 1;
   }
-  group.userData.s = mobile() ? .7 : 1;
+  group.userData.s = mobile() ? .55 : 1;
 
   gsap.ticker.add((t, dt) => {
     const d = dt / 1000;
@@ -245,7 +249,7 @@ gsap.timeline({ defaults: { ease: "power3.out" } })
   .add(() => ScrollTrigger.refresh());
 
 if (!reduce) {
-  gsap.to(".hero-copy", { yPercent: -18, autoAlpha: .2, scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+  if (!lite) gsap.to(".hero-copy", { yPercent: -18, autoAlpha: .2, scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
 }
 
 /* ---------- cursor ---------- */
@@ -301,6 +305,7 @@ if (!reduce) {
   const loop = gsap.to("#marquee", { xPercent: -50, duration: 28, ease: "none", repeat: -1 });
   ScrollTrigger.create({
     onUpdate: s => {
+      if (lite) return;
       const v = Math.min(Math.abs(s.getVelocity()) / 400, 6);
       gsap.to(loop, { timeScale: (s.direction === 1 ? 1 : -1) * (1 + v), duration: .3, overwrite: true });
       gsap.to(loop, { timeScale: s.direction === 1 ? 1 : -1, duration: 1.2, delay: .3, overwrite: "auto" });
@@ -323,7 +328,7 @@ gsap.from(".stat", { x: 60, rotationY: -35, autoAlpha: 0, stagger: .15, duration
 /* ---------- stacked showcase panels ---------- */
 const panels = $$(".panel");
 panels.forEach((p, i) => {
-  if (panels[i + 1]) gsap.to(p, { scale: .92, filter: "brightness(.6)", ease: "none",
+  if (!lite && panels[i + 1]) gsap.to(p, { scale: .92, filter: "brightness(.6)", ease: "none",
     scrollTrigger: { trigger: panels[i + 1], start: "top 88%", end: "top 25%", scrub: true } });
 });
 // 01: layers fan apart in 3D
