@@ -6,11 +6,14 @@ let lenis = null;
 const lite = matchMedia("(max-width: 900px), (hover: none)").matches;
 ScrollTrigger.config({ ignoreMobileResize: true });
 if (window.Lenis && !lite && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  lenis = new Lenis({ lerp: 0.085, smoothWheel: true });
+  lenis = new Lenis({ lerp: 0.11, smoothWheel: true });
   lenis.on("scroll", ScrollTrigger.update);
   gsap.ticker.add(t => lenis.raf(t * 1000));
   gsap.ticker.lagSmoothing(0);
 }
+// Lenis already smooths the scroll, so scrubbed animations must not add a second layer of lag
+// (that double smoothing is what made scrolling back up feel delayed and "confused").
+const SCRUB = lenis ? true : (lite ? true : .4);
 
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const fine = matchMedia("(hover:hover)").matches;
@@ -115,6 +118,7 @@ gl = initGL();
 if (gl) {
   const { renderer, scene, camera, group, core, wire, coreMat, wireMat, rings, sats, points, lights } = gl;
   const mobile = () => innerWidth < 900;
+  const _v = new THREE.Vector3();
   group.position.set(mobile() ? 0 : 2.6, mobile() ? 3.0 : 0, 0);
   group.scale.setScalar(0);
   gl.base = { x: 0, y: 0 };
@@ -181,7 +185,7 @@ if (gl) {
     // lights follow cursor for live reflections
     lights[0].position.x = 5 + state.mouse.x * 8; lights[0].position.y = 3 - state.mouse.y * 6;
     // keep the DOM tech ring locked to the gem on screen
-    const v = group.position.clone().project(camera);
+    const v = _v.copy(group.position).project(camera);
     const px = (v.x * .5 + .5) * innerWidth, py = (-v.y * .5 + .5) * innerHeight;
     const unit = innerHeight / (2 * Math.tan(27.5 * Math.PI / 180) * camera.position.z);
     ringEl.style.transform = "translate(" + px + "px," + py + "px)";
@@ -208,7 +212,7 @@ if (gl) {
   ];
   const hex = h => new THREE.Color(h);
   stops.forEach(([sel, x, y, s, c1, c2]) => {
-    const tl = gsap.timeline({ scrollTrigger: { trigger: sel, start: "top 75%", end: "top 25%", scrub: 1 } });
+    const tl = gsap.timeline({ scrollTrigger: { trigger: sel, start: "top 75%", end: "top 25%", scrub: SCRUB } });
     const cc = hex(c1), wc = hex(c2);
     tl.to(group.position, { x, y, ease: "power1.inOut" }, 0)
       .to(group.userData, { s, ease: "none", onUpdate: () => { if (!state.pulsing) group.scale.setScalar(group.userData.s); } }, 0)
@@ -216,7 +220,7 @@ if (gl) {
       .to(wireMat.color, { r: wc.r, g: wc.g, b: wc.b }, 0);
   });
   // scroll rotation: whole group spins with page progress
-  gsap.to(group.rotation, { y: Math.PI * 4, x: .6, ease: "none", scrollTrigger: { trigger: "main", start: "top top", end: "bottom bottom", scrub: 1 } });
+  gsap.to(group.rotation, { y: Math.PI * 4, x: .6, ease: "none", scrollTrigger: { trigger: "main", start: "top top", end: "bottom bottom", scrub: SCRUB } });
 
   // expose for intro
   gl.intro = () => gsap.to(group.scale, { x: group.userData.s, y: group.userData.s, z: group.userData.s, duration: 1.8, ease: "elastic.out(1,.55)" });
@@ -303,14 +307,12 @@ gsap.to("#progress", { scaleX: 1, ease: "none", scrollTrigger: { start: 0, end: 
 /* ---------- marquee ---------- */
 if (!reduce) {
   const loop = gsap.to("#marquee", { xPercent: -50, duration: 28, ease: "none", repeat: -1 });
-  ScrollTrigger.create({
-    onUpdate: s => {
-      if (lite) return;
-      const v = Math.min(Math.abs(s.getVelocity()) / 400, 6);
-      gsap.to(loop, { timeScale: (s.direction === 1 ? 1 : -1) * (1 + v), duration: .3, overwrite: true });
-      gsap.to(loop, { timeScale: s.direction === 1 ? 1 : -1, duration: 1.2, delay: .3, overwrite: "auto" });
-    }
-  });
+  // speed boost from scroll velocity, eased in the ticker (no new tweens per scroll event, never reverses)
+  if (!lite) {
+    let boost = 0, cur = 1;
+    ScrollTrigger.create({ onUpdate: s => { boost = Math.min(Math.abs(s.getVelocity()) / 500, 5); } });
+    gsap.ticker.add(() => { boost *= .94; cur += ((1 + boost) - cur) * .12; loop.timeScale(cur); });
+  }
 }
 
 /* ---------- reveals ---------- */
@@ -328,7 +330,7 @@ gsap.from(".stat", { x: 60, rotationY: -35, autoAlpha: 0, stagger: .15, duration
 /* ---------- stacked showcase panels ---------- */
 const panels = $$(".panel");
 panels.forEach((p, i) => {
-  if (!lite && panels[i + 1]) gsap.to(p, { scale: .92, filter: "brightness(.6)", ease: "none",
+  if (!lite && panels[i + 1]) gsap.to(p, { scale: .92, "--dim": .4, ease: "none",
     scrollTrigger: { trigger: panels[i + 1], start: "top 88%", end: "top 25%", scrub: true } });
 });
 // 01: layers fan apart in 3D
@@ -418,7 +420,7 @@ ScrollTrigger.matchMedia({
     const track = $("#workTrack");
     const dist = () => track.scrollWidth - innerWidth;
     const tween = gsap.to(track, { x: () => -dist(), ease: "none",
-      scrollTrigger: { trigger: "#work", pin: true, scrub: 1, end: () => "+=" + dist(), invalidateOnRefresh: true, anticipatePin: 1 } });
+      scrollTrigger: { trigger: "#work", pin: true, scrub: SCRUB, end: () => "+=" + dist(), invalidateOnRefresh: true, anticipatePin: 1 } });
     $$(".card:not(.end)").forEach(card => {
       gsap.fromTo(card, { rotationY: 28, y: 40, scale: .92 }, { rotationY: -28, y: 0, scale: 1, ease: "none",
         scrollTrigger: { trigger: card, containerAnimation: tween, start: "left 100%", end: "right 0%", scrub: true } });
